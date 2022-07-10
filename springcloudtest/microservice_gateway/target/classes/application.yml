@@ -1,0 +1,36 @@
+server:
+  port: 8111
+
+spring:
+  application:
+    name: microservice-gateway
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8888/eureka
+  instance:
+    prefer-ip-address: true
+
+#zuul的动态路由配置
+# 转发的路径（path）和 转发的微服务名称（serviceId）是一致的，可以省略zuul路由配置
+#zuul:
+#  routes:
+#    microservice-user:
+#      path: /microservice-user/** #需要转发的路径
+#      serviceId: microservice-user #最终转发的微服务（名称）
+#    microservice-movie:
+#      path: /microservice-movie/** #需要转发的路径
+#      serviceId: microservice-movie #最终转发的微服务（名称）
+zuul:
+  routes:
+    microservice-user:
+      path: /microservice-user/**  #zuul代理配置  zuul.routes.服务名.path,服务名要与注册的一致 #
+      url: http://localhost:9101/ #URL映射
+#      serviceId: microservice-user #应用名映射
+    microservice-movie:
+      path: /microservice-movie/**  #zuul代理配置  zuul.routes.服务名.path,服务名要与注册的一致#
+      url: http://localhost:9002/ #URL映射
+#      serviceId: microservice-movie #应用名映射

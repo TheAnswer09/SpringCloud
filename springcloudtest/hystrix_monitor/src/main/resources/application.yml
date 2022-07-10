@@ -1,0 +1,10 @@
+server:
+  port: 7777
+spring:
+  application:
+    name: hystrix-monitor
+
+# 监听项目配置--所有项目
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "*"

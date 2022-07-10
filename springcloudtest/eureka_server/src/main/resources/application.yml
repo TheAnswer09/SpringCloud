@@ -1,0 +1,26 @@
+server:
+  port: 8888
+spring:    # 服务名称，SpringColud服务调用时用
+  application:
+    name: eureka-server
+# 单机版配置
+eureka:
+  client:
+    fetch-registry: false # 是否需要从eureka获取注册信息
+    register-with-eureka: false # 是否需要把该服务注册到eureka
+    service-url: # 暴露eurek注册地址
+      defaultZone: http://127.0.0.1:${server.port}/eureka
+#  server:
+#    #修改扫描失效服务间隔时间，默认为60秒，单位毫秒
+#    eviction-interval-timer-in-ms: 5000
+#    #取消自我保护机制（默认为true）
+#    enable-self-preservation: false
+
+
+# 集群版配置
+#eureka:
+#  client:
+#    fetch-registry: true # 是否需要从eureka获取注册信息
+#    register-with-eureka: true # 是否需要把该服务注册到eureka
+#    service-url: # 暴露eurek注册地址
+#      defaultZone: http://127.0.0.1:8888/eureka

@@ -1,0 +1,56 @@
+server:
+  port: 8111
+
+spring:
+  application:
+    name: microservice-gateway
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8888/eureka
+  instance:
+    prefer-ip-address: true
+
+#    cloud:
+#      gateway:
+#        discovery:
+#          locator:
+#            enabled: true # 开启从注册中心动态创建路由的功能，利用微服务名称进行路由
+#        routes:
+#          - id: payment_route # 路由的id,没有规定规则但要求唯一,建议配合服务名
+#          #匹配后提供服务的路由地址
+#          #uri: http://localhost:8001
+#          uri: lb://cloud-payment-service
+#          predicates:
+#            - Path=/payment/get/** # 断言，路径相匹配的进行路由
+#
+#            - id: payment_route2
+#          #uri: http://localhost:8001
+#          uri: lb://cloud-payment-service
+#          predicates:
+#            - Path=/payment/sp/** #断言,路径相匹配的进行路由
+
+#zuul的动态路由配置
+# 转发的路径（path）和 转发的微服务名称（serviceId）是一致的，可以省略zuul路由配置
+#zuul:
+#  routes:
+#    microservice-user:
+#      path: /microservice-user/** #需要转发的路径
+#      serviceId: microservice-user #最终转发的微服务（名称）
+#    microservice-movie:
+#      path: /microservice-movie/** #需要转发的路径
+#      serviceId: microservice-movie #最终转发的微服务（名称）
+#zuul:
+#  routes:
+#    microservice-user:
+#      path: /microservice-user/**  #zuul代理配置  zuul.routes.服务名.path,服务名要与注册的一致 #
+#      url: http://localhost:9101/ #URL映射
+##      serviceId: microservice-user #应用名映射
+#    microservice-movie:
+#      path: /microservice-movie/**  #zuul代理配置  zuul.routes.服务名.path,服务名要与注册的一致#
+#      url: http://localhost:9002/ #URL映射
+##      serviceId: microservice-movie #应用名映射
