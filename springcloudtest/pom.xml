@@ -16,14 +16,14 @@
         <module>microservice_gateway</module>
     </modules>
 
-<!--     springboot项目必须导入的parent依赖-->
+<!-- springboot项目必须导入的parent依赖-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.6.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <!--  定义常用属性-->
+    <!--  定义常用属�?->
     <properties>
         <project.bulid.sourceEncoding>UTF-8</project.bulid.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -31,7 +31,7 @@
     </properties>
 
     <dependencies>
-        <!--  springboot 对 web 支持；springMVC相关功能，json转换相关功能等等-->
+        <!--  springboot �?web 支持；springMVC相关功能，json转换相关功能等等-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
